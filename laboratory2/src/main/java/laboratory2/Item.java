@@ -30,6 +30,12 @@ public class Item
 
     public void DecreasePrice(float percent)
     {
+        if (percent >= 100f) 
+        {
+            _price = 0;
+            return;
+        }
+
         _price -= GetPercent(percent);
 
         if (_price < 0f) 
