@@ -25,6 +25,11 @@ public class Item
 
     public void IncreasePrice(float percent)
     {
+        if (percent <= 0f) 
+        {
+            return;    
+        }
+
         _price += GetPercent(percent);
     }
 
@@ -32,7 +37,11 @@ public class Item
     {
         if (percent >= 100f) 
         {
-            _price = 0;
+            _price = 0f;
+            return;
+        }
+        else if (percent <= 0f) 
+        {
             return;
         }
 
