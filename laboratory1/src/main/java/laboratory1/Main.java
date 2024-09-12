@@ -13,6 +13,12 @@ public class Main
         //Laboratory 2
         FizzBuzz();
         System.out.println("\n");
+        
+        //Laboratory 3
+        numbers = new int[] { 1, 1, 1, 2, 1 };
+        // numbers = new int[] { 2, 1, 1, 2, 1 };
+        // numbers = new int[] { 10, 10 };
+        System.out.println(CanSplit(numbers));
     }
 
     public static boolean IsSequence(int[] numbers)
@@ -61,5 +67,52 @@ public class Main
                 System.out.println(i);
             }
         }
+    }
+    
+    public static boolean CanSplit(int[] numbers)
+    {
+        if (numbers.length < 2) 
+        {
+            return false;
+        }
+
+        var totalSum = Sum(numbers, 0, numbers.length);
+        if (totalSum % 2 != 0) 
+        {
+            return false;
+        }
+
+        var firstArrayLen = numbers.length / 2;
+        var secondArrayLen = numbers.length - firstArrayLen;
+
+        var sumOfFirstPart = Sum(numbers, 0, firstArrayLen);
+        var sumOfSecondPart = Sum(numbers, firstArrayLen, secondArrayLen);
+
+        if (sumOfFirstPart == sumOfSecondPart) 
+        {
+            return true;
+        }
+
+        sumOfFirstPart = Sum(numbers, 0, secondArrayLen);
+        sumOfSecondPart = Sum(numbers, secondArrayLen, firstArrayLen);
+
+        return sumOfFirstPart == sumOfSecondPart;
+    }
+
+    private static int Sum(int[] numbers, int startIndex, int count)
+    {
+        var len = startIndex + count;
+        if (len > numbers.length) 
+        {
+            throw new IllegalArgumentException();
+        }
+
+        var sum = 0;
+        for (var i = startIndex; i < len; i++)
+        {
+            sum += numbers[i];
+        }
+
+        return sum;
     }
 }
