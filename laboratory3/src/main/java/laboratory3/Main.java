@@ -22,7 +22,7 @@ public class Main
         Split(str);
         System.out.println();
 
-        System.err.println(CreateSequence("abc", "ABCDEF"));
+        System.out.println(CreateSequence("abc", "ABCDEF"));
     }
 
     //1. Реалізуйте метод, який приймає на вхід рядок та повертає true,
