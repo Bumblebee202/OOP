@@ -29,6 +29,11 @@ public class Main
     //якщо рядок закінчується на «ed» і false у противному випадку;
     private static boolean EndsWithEd(String str)
     {
+        if (IsNullOrEmpty(str)) 
+        {
+            return false;
+        }
+
         return str.endsWith("ed");
     }
 
@@ -37,6 +42,11 @@ public class Main
     private static int SumNumbersInString(String str)
     {
         var sum = 0;
+
+        if (IsNullOrEmpty(str)) 
+        {
+            return sum;
+        }
 
         //Java doesn't support foreach loop...
         for (var i = 0; i < str.length(); i++)
@@ -58,6 +68,11 @@ public class Main
     private static int GetLongestBlockOfSymbol(String str)
     {
         var size = 0;
+
+        if (IsNullOrEmpty(str)) 
+        {
+            return size;
+        }
 
         var strLen = str.length();
 
@@ -93,6 +108,11 @@ public class Main
     //коли слово стоїть на початку або наприкінці).
     private static void Split(String str)
     {
+        if (IsNullOrEmpty(str)) 
+        {
+            return;
+        }
+
         var words = str.split("[ ]");
 
         for (String word : words) 
@@ -108,6 +128,15 @@ public class Main
     //Якщо символи в одному з рядків закінчаться, символи іншого рядка, що залишилися, дописуються в кінець.
     private static String CreateSequence(String source1, String source2)
     {
+        if (IsNullOrEmpty(source1)) 
+        {
+            return source2;
+        }
+        else if (IsNullOrEmpty(source2)) 
+        {
+            return source1;
+        }
+
         var capacity = source1.length() + source2.length(); 
         var builder = new StringBuilder(capacity);
 
@@ -131,5 +160,10 @@ public class Main
 
         var symbol = source.charAt(index);
         builder.append(symbol);    
+    }
+
+    private static boolean IsNullOrEmpty(String str)
+    {
+        return str == null || str.trim().isEmpty();
     }
 }
