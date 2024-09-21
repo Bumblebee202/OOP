@@ -14,6 +14,9 @@ public class Main
 
         str = "aaaaaBCSAAA";
         System.out.println(GetLongestBlockOfSymbol(str));
+
+        str = "Look, if you had one shot or one opportunity.";
+        Split(str);
     }
 
     //1. Реалізуйте метод, який приймає на вхід рядок та повертає true,
@@ -77,5 +80,18 @@ public class Main
         }
 
         return size;
+    }
+
+    //4. Реалізуйте метод, який приймає на вхід рядок і виводить у консоль
+    //знайдені слова у цьому рядку (слова відокремлюються пробілами, крім випадків,
+    // коли слово стоїть на початку або наприкінці).
+    private static void Split(String str)
+    {
+        var words = str.split("[ ]");
+
+        for (String word : words) 
+        {
+            System.out.println(word);
+        }
     }
 }
