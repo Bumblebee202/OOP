@@ -11,6 +11,9 @@ public class Main
         str = "Look, if you had 1 shot or 1 opportunity. To seize everything you ever wanted in one moment. Would you capture it or just let it slip?";
         // str = "string without any numbers"
         System.out.println(SumNumbersInString(str));
+
+        str = "aaaaaBCSAAA";
+        System.out.println(GetLongestBlockOfSymbol(str));
     }
 
     //1. Реалізуйте метод, який приймає на вхід рядок та повертає true,
@@ -37,5 +40,42 @@ public class Main
         }
 
         return sum;
+    }
+
+    //3. Реалізуйте метод, який приймає на вхід рядок і
+    //повертає довжину найдовшого «блоку» символів у цьому рядку («блок» - безліч 
+    //однакових символів, що йдуть поспіль, наприклад, 
+    //у рядку «aaBCS» - найдовший блок «аа» довжиною 2 символу );
+    private static int GetLongestBlockOfSymbol(String str)
+    {
+        var size = 0;
+
+        var strLen = str.length();
+
+        for (var i = 0; i < strLen; i++)
+        {
+            var firstBlockSymbol = str.charAt(i);
+
+            var blockSize = 1;
+
+            for (var j = i + 1; j < strLen; j++)
+            {
+                var nextSymbol = str.charAt(j);
+                i = j - 1;
+                if (firstBlockSymbol != nextSymbol) 
+                {
+                    break;
+                }
+
+                ++blockSize;
+            }
+
+            if (size < blockSize) 
+            {
+                size = blockSize;    
+            }
+        }
+
+        return size;
     }
 }
