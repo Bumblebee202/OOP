@@ -77,7 +77,9 @@ public class MyOwnAutoShop implements IAdmin, ICustomer
     public double GetIncome() 
     {
         var soldCars = GetSoldCars();
-        return soldCars.stream().mapToDouble(Car::GetSalePrice).sum();
+        return soldCars.stream()
+                       .mapToDouble(Car::GetSalePrice)
+                       .sum();
     }
 
     private ArrayList<Car> GetSoldCars()
