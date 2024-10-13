@@ -17,6 +17,7 @@ public final class Lecturer extends Person
         SetSalary(salary);
     }
 
+    @Override
     public String PrintInfo()
     {
         return String.format("Lecturer of department %1$s %2$s %3$s, age: %4$s. Salary: %5$s",
