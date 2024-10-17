@@ -41,7 +41,7 @@ public abstract class BaseTask implements Closeable
             ? 1
             : 0;
 
-        return _random.nextInt(top - bottom) + bottom + inclusive;
+        return _random.nextInt(top - bottom) + (bottom + inclusive);
     }
 
     protected void FillIntegerArrayRandomly(Integer[] arr, int bottom, int top, boolean hasInclusive)
