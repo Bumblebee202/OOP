@@ -32,6 +32,8 @@ public class Task4 extends BaseTask
                 return;
             }
 
+            //I could use binary search instead of generate new random number..
+            //but ye.. with rnadom it's a bit funnier
             if (IsLess(gues)) 
             {
                 _top = gues;
@@ -54,8 +56,6 @@ public class Task4 extends BaseTask
             }
         }
         while(true);
-
-        ShowSeparator();
     }
 
     private boolean IsWin(int gues, int tries)
@@ -95,15 +95,4 @@ public class Task4 extends BaseTask
         }
         while(true);
     }
-
-    private int GenerateRandomValue(int bottom, int top, boolean hasInclusive)
-    {
-        var inclusive = hasInclusive
-            ? 1
-            : 0;
-
-        var random = new Random();
-        return random.nextInt(top - bottom) + bottom + inclusive;
-    }
-
 }

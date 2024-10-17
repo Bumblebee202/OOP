@@ -33,17 +33,4 @@ public class Task1 extends BaseTask
 
         return count;
     }
-
-    private int SumOfDigits(int value)
-    {
-        var sum = 0;
-
-        while (value != 0) 
-        {
-            sum += value % 10;
-            value /= 10;
-        }
-
-        return sum;
-    }
 }

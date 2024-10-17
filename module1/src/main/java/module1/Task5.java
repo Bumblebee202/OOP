@@ -26,7 +26,7 @@ public class Task5 extends BaseTask
 
         System.out.println(String.format("Tickets count: %s", tickets.size()));
 
-        for (Integer ticket : tickets) 
+        for (var ticket : tickets) 
         {
             System.out.println(ticket);
         }
